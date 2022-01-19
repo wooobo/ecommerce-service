@@ -10,7 +10,7 @@
 
 ## 도메인 구조
 | 도메인          | 컬럼                  | 설명        | 타입                  |
-|--------------|---------------------|-----------|---------------------|
+|--------------|---------------------|-----------|--------------ㅈ-------|
 | Product      |                     |           |                     |
 |              | name                | 상품이름      | String              |
 |              | price               | 상품가격      | Long                |
@@ -18,9 +18,8 @@
 |              | productOptionGroups | 상품 옵션 그룹  | ProductOptionGroups |
 |              | saleStartAt         | 판매 시작 날짜  | Date                |
 |              | saleEndAt           | 판매 종료 날짜  | Date                |
-|              | brand               | 브랜드       | Brand               |
-|              | category            | 상품 카테고리   | ProductCategory     |
-|              | deliveryCompanyCode | 택배사 코드    | String              |
+|              | brandCode               | 브랜드 코드       | String          |
+|              | categoryCode            | 상품 카테고리   | String     |
 |              | shippingPlaceCode   | 출고지 코드    | String              |
 |              | returnPlaceCode     | 반품지 코드    | String              |
 
