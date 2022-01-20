@@ -18,16 +18,18 @@ public class Product {
     private Long id;
 
     private String name;
-    private Long price;
 
     @Lob
     private String content;
 
     @Embedded
+    private Price price;
+
+    @Embedded
     private ProductOptionGroups productOptionGroups;
 
-    private LocalDateTime saleStartAt;
-    private LocalDateTime saleEndAt;
+    @Embedded
+    private SalesPeriod salesPeriod;
     private String brandCode;
     private String categoryCode;
     private String shippingPlaceCode;
@@ -36,15 +38,14 @@ public class Product {
     protected Product() {
     }
 
-    public Product(String name, Long price, String content, ProductOptionGroups productOptionGroups,
-        LocalDateTime saleStartAt, LocalDateTime saleEndAt, String brandCode, String categoryCode,
-        String shippingPlaceCode, String returnPlaceCode) {
+    public Product(String name, Price price, String content,
+        ProductOptionGroups productOptionGroups, SalesPeriod salesPeriod, String brandCode,
+        String categoryCode, String shippingPlaceCode, String returnPlaceCode) {
         this.name = name;
         this.price = price;
         this.content = content;
         this.productOptionGroups = productOptionGroups;
-        this.saleStartAt = saleStartAt;
-        this.saleEndAt = saleEndAt;
+        this.salesPeriod = salesPeriod;
         this.brandCode = brandCode;
         this.categoryCode = categoryCode;
         this.shippingPlaceCode = shippingPlaceCode;
