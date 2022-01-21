@@ -1,5 +1,6 @@
 package com.slowin.ecommerce.domain.product;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.time.LocalDateTime;
@@ -19,5 +20,19 @@ class SalesPeriodTest {
 
         // then
         assertThatThrownBy(actual).isInstanceOf(RuntimeException.class);
+    }
+
+    @Test
+    void 판매시작일이_오늘_이후이면_false() {
+        // given
+        LocalDateTime saleStartAt = LocalDateTime.now().plusDays(1);
+        LocalDateTime saleEndAt = LocalDateTime.now().plusDays(2);
+        SalesPeriod salesPeriod = new SalesPeriod(saleStartAt, saleEndAt);
+
+        // when
+        boolean actual = salesPeriod.isBeforeOrSameTodayIsStartAt();
+
+        // then
+        assertThat(actual).isFalse();
     }
 }
