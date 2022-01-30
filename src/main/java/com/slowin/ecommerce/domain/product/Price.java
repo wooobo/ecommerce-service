@@ -26,7 +26,7 @@ public class Price {
 
     private void minValidate(Long price) {
         if (price <= PRICE_MIN) {
-            throw new RuntimeException("최저가격 보자 작을 수 없습니다.");
+            throw new RuntimeException("최저가격 보다 작을 수 없습니다.");
         }
     }
 

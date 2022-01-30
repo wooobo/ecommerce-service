@@ -25,7 +25,7 @@ public class SalesPeriod {
 
     private void validDate(LocalDateTime saleStartAt, LocalDateTime saleEndAt) {
         if (saleStartAt.isAfter(saleEndAt)) {
-            throw new RuntimeException("판매시작일이 판매종료일보다 앞선 날짜이어야 합니다.");
+            throw new RuntimeException("판매시작일이 판매종료일보다 이전 날짜이어야 합니다.");
         }
     }
 
