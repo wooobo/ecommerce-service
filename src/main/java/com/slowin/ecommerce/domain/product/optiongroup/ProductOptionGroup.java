@@ -1,4 +1,4 @@
-package com.slowin.ecommerce.domain.product.optionGroup;
+package com.slowin.ecommerce.domain.product.optiongroup;
 
 import java.util.Objects;
 import javax.persistence.Entity;

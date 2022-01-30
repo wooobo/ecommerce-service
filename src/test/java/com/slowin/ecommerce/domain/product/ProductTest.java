@@ -2,7 +2,7 @@ package com.slowin.ecommerce.domain.product;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.slowin.ecommerce.domain.product.optionGroup.ProductOptionGroups;
+import com.slowin.ecommerce.domain.product.optiongroup.ProductOptionGroups;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import org.assertj.core.api.ThrowableAssert;

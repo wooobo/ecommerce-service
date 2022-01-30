@@ -1,6 +1,6 @@
 package com.slowin.ecommerce.domain.product;
 
-import com.slowin.ecommerce.domain.product.optionGroup.ProductOptionGroups;
+import com.slowin.ecommerce.domain.product.optiongroup.ProductOptionGroups;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
