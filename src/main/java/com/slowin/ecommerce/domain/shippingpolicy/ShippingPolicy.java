@@ -22,14 +22,19 @@ public class ShippingPolicy {
     private boolean usable;
 
     @Embedded
+    private DeliveryFee deliveryFee;
+
+    @Embedded
     private PlaceAddress placeAddress;
 
     protected ShippingPolicy() {
     }
 
-    public ShippingPolicy(String name, boolean usable, PlaceAddress placeAddress) {
+    public ShippingPolicy(String name, boolean usable, DeliveryFee deliveryFee,
+        PlaceAddress placeAddress) {
         this.name = name;
         this.usable = usable;
+        this.deliveryFee = deliveryFee;
         this.placeAddress = placeAddress;
     }
 
