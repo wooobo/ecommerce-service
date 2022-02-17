@@ -24,18 +24,22 @@ public class ShippingPolicy {
     @Embedded
     private DeliveryFee deliveryFee;
 
-    @Embedded
-    private PlaceAddress placeAddress;
+    @Column(name = "shipping_place_id")
+    private Long shippingPlaceId;
+
+    @Column(name = "return_place_id")
+    private Long returnPlaceId;
 
     protected ShippingPolicy() {
     }
 
     public ShippingPolicy(String name, boolean usable, DeliveryFee deliveryFee,
-        PlaceAddress placeAddress) {
+        Long shippingPlaceId, Long returnPlaceId) {
         this.name = name;
         this.usable = usable;
         this.deliveryFee = deliveryFee;
-        this.placeAddress = placeAddress;
+        this.shippingPlaceId = shippingPlaceId;
+        this.returnPlaceId = returnPlaceId;
     }
 
     @Override
