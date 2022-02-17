@@ -13,6 +13,12 @@ public class DeliveryFee {
     @Column(name = "fee")
     private Long fee;
 
+    @Column(name = "return_fee")
+    private Long returnFee;
+
+    @Column(name = "exchange_fee")
+    private Long exchangeFee;
+
     @Column(name = "conditional_fee")
     private Long conditionalFee;
 
@@ -25,10 +31,12 @@ public class DeliveryFee {
     protected DeliveryFee() {
     }
 
-    public DeliveryFee(DeliveryFeeType type, Long fee, Long conditionalFee, Long jejuFee,
-        Long notJejuFee) {
+    public DeliveryFee(DeliveryFeeType type, Long fee, Long returnFee, Long exchangeFee,
+        Long conditionalFee, Long jejuFee, Long notJejuFee) {
         this.type = type;
         this.fee = fee;
+        this.returnFee = returnFee;
+        this.exchangeFee = exchangeFee;
         this.conditionalFee = conditionalFee;
         this.jejuFee = jejuFee;
         this.notJejuFee = notJejuFee;
