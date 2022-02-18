@@ -33,11 +33,10 @@ public class ProductTest {
         Status status = Status.READY;
         String brandCode = "brx_01";
         String categoryCode = "ctx_01";
-        String shippingPlaceCode = "sp_01";
-        String returnPlaceCode = "rp_01";
+        Long shippingPlaceId = 1L;
         ProductOptionGroups productOptionGroups = new ProductOptionGroups(Collections.emptyList());
 
         return new Product(name, productPrice, content, status, productOptionGroups, salesPeriod,
-            brandCode, categoryCode, shippingPlaceCode, returnPlaceCode);
+            brandCode, categoryCode, shippingPlaceId);
     }
 }

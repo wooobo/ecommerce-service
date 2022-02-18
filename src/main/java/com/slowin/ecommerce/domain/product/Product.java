@@ -40,19 +40,19 @@ public class Product {
 
     @Column(name = "brand_code")
     private String brandCode;
+
     @Column(name = "category_code")
     private String categoryCode;
-    @Column(name = "shipping_place_code")
-    private String shippingPlaceCode;
-    @Column(name = "return_place_code")
-    private String returnPlaceCode;
+
+    @Column(name = "shipping_policy_id")
+    private Long shippingPlaceId;
 
     protected Product() {
     }
 
     public Product(String name, Price price, String content, Status status,
         ProductOptionGroups productOptionGroups, SalesPeriod salesPeriod, String brandCode,
-        String categoryCode, String shippingPlaceCode, String returnPlaceCode) {
+        String categoryCode, Long shippingPlaceId) {
         this.name = name;
         this.price = price;
         this.content = content;
@@ -61,8 +61,7 @@ public class Product {
         this.salesPeriod = salesPeriod;
         this.brandCode = brandCode;
         this.categoryCode = categoryCode;
-        this.shippingPlaceCode = shippingPlaceCode;
-        this.returnPlaceCode = returnPlaceCode;
+        this.shippingPlaceId = shippingPlaceId;
     }
 
     public void changeOnSale() {
