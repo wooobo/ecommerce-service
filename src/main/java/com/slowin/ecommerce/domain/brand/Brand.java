@@ -1,27 +1,27 @@
-package com.slowin.ecommerce.domain.product.optionGroup;
+package com.slowin.ecommerce.domain.brand;
 
 import java.util.Objects;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class ProductOptionGroup {
+public class Brand {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer ordering;
-    private String productOptionGroupName;
+    @Column(name = "name")
+    private String name;
 
-    protected ProductOptionGroup() {
+    protected Brand() {
     }
 
-    public ProductOptionGroup(Integer ordering, String productOptionGroupName) {
-        this.ordering = ordering;
-        this.productOptionGroupName = productOptionGroupName;
+    public Brand(String name) {
+        this.name = name;
     }
 
     @Override
@@ -32,8 +32,8 @@ public class ProductOptionGroup {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ProductOptionGroup that = (ProductOptionGroup) o;
-        return Objects.equals(id, that.id);
+        Brand brand = (Brand) o;
+        return Objects.equals(name, brand.name);
     }
 
     @Override

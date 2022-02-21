@@ -1,10 +1,12 @@
 package com.slowin.ecommerce.domain.product;
 
-import com.slowin.ecommerce.domain.product.optionGroup.ProductOptionGroups;
-import java.time.LocalDateTime;
+import com.slowin.ecommerce.domain.product.optiongroup.ProductOptionGroups;
 import java.util.Objects;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,38 +19,57 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name")
     private String name;
-    private Long price;
 
     @Lob
     private String content;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private Status status;
+
+    @Embedded
+    private Price price;
+
     @Embedded
     private ProductOptionGroups productOptionGroups;
 
-    private LocalDateTime saleStartAt;
-    private LocalDateTime saleEndAt;
+    @Embedded
+    private SalesPeriod salesPeriod;
+
+    @Column(name = "brand_code")
     private String brandCode;
+
+    @Column(name = "category_code")
     private String categoryCode;
-    private String shippingPlaceCode;
-    private String returnPlaceCode;
+
+    @Column(name = "shipping_policy_id")
+    private Long shippingPlaceId;
 
     protected Product() {
     }
 
-    public Product(String name, Long price, String content, ProductOptionGroups productOptionGroups,
-        LocalDateTime saleStartAt, LocalDateTime saleEndAt, String brandCode, String categoryCode,
-        String shippingPlaceCode, String returnPlaceCode) {
+    public Product(String name, Price price, String content, Status status,
+        ProductOptionGroups productOptionGroups, SalesPeriod salesPeriod, String brandCode,
+        String categoryCode, Long shippingPlaceId) {
         this.name = name;
         this.price = price;
         this.content = content;
+        this.status = status;
         this.productOptionGroups = productOptionGroups;
-        this.saleStartAt = saleStartAt;
-        this.saleEndAt = saleEndAt;
+        this.salesPeriod = salesPeriod;
         this.brandCode = brandCode;
         this.categoryCode = categoryCode;
-        this.shippingPlaceCode = shippingPlaceCode;
-        this.returnPlaceCode = returnPlaceCode;
+        this.shippingPlaceId = shippingPlaceId;
+    }
+
+    public void changeOnSale() {
+        if (!salesPeriod.isBeforeOrSameTodayIsStartAt()) {
+            throw new RuntimeException("판매시작일이 시작되지 않아 상품을 판매중으로 변경 할 수 없습니다.");
+        }
+
+        this.status = Status.SALE;
     }
 
     @Override

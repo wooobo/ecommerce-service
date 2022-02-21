@@ -13,13 +13,14 @@
 |--------------|---------------------|-----------|--------------ㅈ-------|
 | Product      |                     |           |                     |
 |              | name                | 상품이름      | String              |
+|              | status              | 판매상태      | String              |
 |              | price               | 상품가격      | Long                |
 |              | content             | 상품 상세내용   | String              |
 |              | productOptionGroups | 상품 옵션 그룹  | ProductOptionGroups |
 |              | saleStartAt         | 판매 시작 날짜  | Date                |
 |              | saleEndAt           | 판매 종료 날짜  | Date                |
-|              | brandCode               | 브랜드 코드       | String          |
-|              | categoryCode            | 상품 카테고리   | String     |
+|              | brandCode           | 브랜드 코드     | String          |
+|              | categoryCode        | 상품 카테고리   | String     |
 |              | shippingPlaceCode   | 출고지 코드    | String              |
 |              | returnPlaceCode     | 반품지 코드    | String              |
 
